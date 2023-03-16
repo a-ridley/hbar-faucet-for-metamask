@@ -1,2 +1,5 @@
-## Template is Hedera themed
-This template offers a simple navbar and footer with a Hedera theme.
+## A Hedera React App
+This application uses the Hedera Hashgraph JavaScript SDK to transfer HBAR to a MetaMask account. 
+
+## How to Run
+npm run start
