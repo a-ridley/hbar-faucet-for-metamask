@@ -4,10 +4,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import NavBar from './components/Navbar';
 import { Box } from '@mui/material';
 import AppRouter from './AppRouter';
+import { GlobalAppContextProvider } from './contexts/GlobalAppContext';
 
 function App() {
   return (
-    <div>
+    <GlobalAppContextProvider>
       <CssBaseline />
       <Box
         sx={{
@@ -27,7 +28,7 @@ function App() {
         </Box>
         <Footer />
       </Box>
-    </div>
+    </GlobalAppContextProvider>
   );
 }
 
