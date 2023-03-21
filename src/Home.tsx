@@ -1,5 +1,5 @@
 import { AccountId, Client, PrivateKey } from "@hashgraph/sdk";
-import { Button } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import { useContext } from "react";
 import { GlobalAppContext } from "./contexts/GlobalAppContext";
 import { sendHbar } from './services/hederaService'
@@ -21,15 +21,25 @@ export default function Home() {
   client.setOperator(myAccountId, myPrivateKey);
 
   return (
-    <div>
+    <Stack 
+      spacing={4}
+      sx={{alignItems: 'center'}}
+    >
+      <Typography
+        variant="h4"
+        color="white"
+      >
+        Let's buidl a dApp on Hedera
+      </Typography>
       <Button
         variant="contained"
+        color="secondary"
         onClick={() => {
           sendHbar(client, myAccountId, AccountId.fromEvmAddress(0, 0, metamaskAccountAddress), 7, myPrivateKey)
         }}
       >
-        Send HBAR to MetaMask
+        Transfer HBAR to MetaMask Account
       </Button>
-    </div>
+    </Stack>
   )
 }

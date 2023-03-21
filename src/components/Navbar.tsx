@@ -20,24 +20,18 @@ export default function NavBar() {
 
   return (
     <AppBar
-      position="relative"
-      sx={{
-        backgroundColor: "#F9F9F9"
-      }}
-    >
+      position="relative" color='primary'>
       <Toolbar>
-        <img src={HBARLogo} style={{
-          width: '36px',
-          height: 'auto'
-        }} />
-        <Typography variant="h6" color="black" pl={1} noWrap>
+        <img src={HBARLogo} className='hbarLogoImg' />
+        <Typography variant="h6" color="white" pl={1} noWrap>
           Happy Building
         </Typography>
 
         <Button
-          variant="contained"
+          variant='contained'
+          color='secondary'
           sx={{
-            ml: "auto"
+            ml: 'auto'
           }}
           onClick={retrieveWalletAddress}
         >

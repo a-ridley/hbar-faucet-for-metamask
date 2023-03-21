@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Link } from '@mui/material';
+import { Box } from '@mui/material';
 import BuiltOnHedera from "../assets/built-on-hedera.svg";
 
 export default function Footer() {
@@ -6,22 +6,16 @@ export default function Footer() {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
       }}
     >
       <Box
-        component="footer"
-        sx={{
-          py: 3,
-          px: 3,
-          mt: 'auto',
-          backgroundColor:  "#F9F9F9"
-        }}
+        className='footer'
       >
-          <img src={BuiltOnHedera} style={{
-          height: '60px',
-          width: 'auto',
-        }} />
+          <img 
+            src={BuiltOnHedera}
+            className='builtOnHederaSVG'
+          />
       </Box>
     </Box>
   );
