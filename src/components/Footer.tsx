@@ -14,6 +14,7 @@ export default function Footer() {
       >
           <img 
             src={BuiltOnHedera}
+            alt='An upper case H with a line through the top and the text Build on Hedera'
             className='builtOnHederaSVG'
           />
       </Box>

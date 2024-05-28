@@ -2,8 +2,8 @@ import Footer from './components/Footer';
 import CssBaseline from '@mui/material/CssBaseline';
 import NavBar from './components/Navbar';
 import { Box, ThemeProvider } from '@mui/material';
+import { AllWalletsProvider } from './services/wallets/AllWalletsProvider';
 import AppRouter from './AppRouter';
-import { GlobalAppContextProvider } from './contexts/GlobalAppContext';
 import colorBackground from './assets/colors.png';
 import { theme } from './theme';
 import "./App.css";
@@ -11,7 +11,7 @@ import "./App.css";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalAppContextProvider>
+      <AllWalletsProvider>
         <CssBaseline />
         <Box
           sx={{
@@ -36,7 +36,7 @@ function App() {
           </Box>
           <Footer />
         </Box>
-      </GlobalAppContextProvider>
+      </AllWalletsProvider>
     </ThemeProvider>
   );
 }

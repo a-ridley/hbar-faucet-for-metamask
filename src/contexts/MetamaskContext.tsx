@@ -5,19 +5,19 @@ const defaultValue = {
   setMetamaskAccountAddress: (newValue: string) => { },
 }
 
-export const GlobalAppContext = createContext(defaultValue)
+export const MetamaskContext = createContext(defaultValue)
 
-export const GlobalAppContextProvider = (props: { children: ReactNode | undefined }) => {
+export const MetamaskContextProvider = (props: { children: ReactNode | undefined }) => {
   const [metamaskAccountAddress, setMetamaskAccountAddress] = useState('')
 
   return (
-    <GlobalAppContext.Provider
+    <MetamaskContext.Provider
       value={{
         metamaskAccountAddress,
         setMetamaskAccountAddress
       }}
     >
       {props.children}
-    </GlobalAppContext.Provider>
+    </MetamaskContext.Provider>
   )
 }

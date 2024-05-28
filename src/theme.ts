@@ -5,10 +5,8 @@ export const theme = createTheme({
     fontFamily: '"Styrene A Web", "Helvetica Neue", Sans-Serif',
   },
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#222222'
-    },
-    secondary: {
       main: '#8259ef'
     }
   }

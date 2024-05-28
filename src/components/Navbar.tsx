@@ -1,45 +1,45 @@
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
 import HBARLogo from "../assets/hbar-logo.svg";
-import { GlobalAppContext } from '../contexts/GlobalAppContext';
-import { connectToMetamask } from '../services/metamaskService';
-
+import { useWalletInterface } from '../services/wallets/useWalletInterface';
+import { WalletSelectionDialog } from './WalletSelectionDialog';
 
 export default function NavBar() {
-  // use the GlobalAppContext to keep track of the metamask account connection
-  const { metamaskAccountAddress, setMetamaskAccountAddress } = useContext(GlobalAppContext);
+  const [open, setOpen] = useState(false);
+  const { accountId, walletInterface } = useWalletInterface();
 
-  const retrieveWalletAddress = async () => {
-    const addresses = await connectToMetamask();
-    if (addresses) {
-      // grab the first wallet address
-      setMetamaskAccountAddress(addresses[0]);
-      console.log(addresses[0]);
+  const handleConnect = async () => {
+    if (accountId) {
+      walletInterface.disconnect();
+    } else {
+      setOpen(true);
     }
-  }
+  };
+
+  useEffect(() => {
+    if (accountId) {
+      setOpen(false);
+    }
+  }, [accountId])
 
   return (
-    <AppBar
-      position="relative" color='primary'>
+    <AppBar position='relative'>
       <Toolbar>
-        <img src={HBARLogo} className='hbarLogoImg' />
+        <img src={HBARLogo} alt='An upper case H with a line through the top' className='hbarLogoImg' />
         <Typography variant="h6" color="white" pl={1} noWrap>
           Happy Building
         </Typography>
-
         <Button
           variant='contained'
-          color='secondary'
           sx={{
-            ml: 'auto'
+            ml: "auto"
           }}
-          onClick={retrieveWalletAddress}
+          onClick={handleConnect}
         >
-          {metamaskAccountAddress === "" ?
-            "Connect to MetaMask" :
-            `Connected to: ${metamaskAccountAddress.substring(0, 8)}...`}
+          {accountId ? `Connected: ${accountId}` : 'Connect Wallet'}
         </Button>
       </Toolbar>
+      <WalletSelectionDialog open={open} setOpen={setOpen} onClose={() => setOpen(false)} />
     </AppBar>
   )
 }
