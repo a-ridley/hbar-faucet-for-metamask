@@ -28,6 +28,9 @@ This application uses the [cra-hedera-template](https://github.com/hedera-dev/cr
 
 ## How to contribute
 1. Fork this repository
-2. If add new features pre-fix your branch name with `feature/`
+2. If adding new features pre-fix your branch name with `feature/`
 3. if fixing a bug start your branch name with `bug/`
 4. Make a Pull request
+
+## Tutorials
+Explore DApp development using the Mirror Node API and Hedera Token Service (HTS) following [this guide](https://docs.hedera.com/hedera/tutorials/more-tutorials/develop-a-hedera-dapp-integrated-with-walletconnect).
